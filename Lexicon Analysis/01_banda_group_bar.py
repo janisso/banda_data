@@ -40,17 +40,69 @@ sns.set_palette(sns.color_palette(colors))
 
 #def do_a_pie(p1,axarr):
 
+labels = np.array(["sample pack","random"	"patterns	" , "single characteres", "onomatopaic",	"phatic",
+                   "metalinguistics", "someone", "political", "comic","statements","html/command	",
+                   "emoticons","senseless",	"slogans","questions","bully","demanding", "egoic",
+                   "complaint","love","humour","musical","support"])
+
+
+#sample pack
+#######"random"
+#####"patterns"
+#####"single characteres"
+#####"onomatopaic"
+#####"phatic"
+#####"metalinguistics"
+#####"someone"
+#####"political"
+#####"comic"
+#####"statements"
+#####"html/command"
+#####"emoticons"
+"senseless"
+"slogans"
+"questions"	
+"bully"
+"demanding"
+"egoic"
+"complaint"
+"love"
+"humour"
+"musical"
+"support"
+
 def big_pie(axarr,p1):
+    
+    rndm = np.sum(p1["random"])
+    ptrns = np.sum(p1["patterns"])
+    schar = np.sum(p1["single characteres"])
+    
+    
+    on = np.sum(p1['onomatopaic'])    
     ph = np.sum(p1['phatic'])
     ml = np.sum(p1['metalinguistical'])
     so = np.sum(p1['someone'])
     po = np.sum(p1['political'])
-    on = np.sum(p1['onomatopaic'])
     co = np.sum(p1['comic'])
     st = np.sum(p1['statements'])
-    ab = np.sum(p1['abstract'])
-    ht = np.sum(p1['htmlcommand'])
+    ht = np.sum(p1['"html/command"'])
     em = np.sum(p1['emoticons'])
+    
+    snslss = np.sum(p1["senseless"])
+    slgns = np.sum(p1["slogans"])
+    qstns = np.sum(p1["questions"])
+    bullyll = np.sum(p1["bully"])
+
+    dmndng=np.sum(p1["demanding"])
+    egoic = np.sum(p1["egoic"])
+    complaint = np.sum(p1["complaint"])
+    love = np.sum(p1["love"])
+    humor = np.sum(p1["humour"])
+    musical = np.sum(p1["musical"])
+    spprt = np.sum(p1["support"])
+    
+    
+
     
     for i in range(len(p1)):
         if sum(p1[i])<1:
