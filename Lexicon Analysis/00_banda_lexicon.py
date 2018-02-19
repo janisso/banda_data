@@ -118,7 +118,7 @@ def plot_timeline(axarr,p,uo,uc,sa,un,non):
     maxim = max(p[:,1])
     uo_array = np.zeros((maxim,len(p)))
     #uo_array.shape
-    print uo_array.shape
+    #print uo_array.shape
     #for i in range(0,len(uo)):#len(uo)):
     for i in range(0,len(uo)):
         #print i
@@ -175,7 +175,7 @@ def plot_timeline(axarr,p,uo,uc,sa,un,non):
             c = 'blue'
         elif sa[i,1]==1:
             c = 'green'
-            print 'green'
+            #print 'green'
         elif sa[i,1]==2:
             c = 'red'
         else:
@@ -256,13 +256,13 @@ def most_common(L):
 
 
 #HERE WE COUNT THE NUMBER OF USERS
-line_count = file_len('/Users/mb/Desktop/Janis.so/06_qmul/01_banda/banda/puma.out')
+line_count = file_len('/Users/mb/Desktop/Janis.so/06_qmul/01_banda/banda_data/banda/puma.out')
 
 #ARRAY WITH INDEXES AND TEXT
 #log_array = np.zeros((line_count,2)).astype(str) 
 log_array = []
 
-f = open('/Users/mb/Desktop/Janis.so/06_qmul/01_banda/banda/puma.out')
+f = open('/Users/mb/Desktop/Janis.so/06_qmul/01_banda/banda_data/banda/puma.out')
 log_count = 0
 
 for line in f:
@@ -279,14 +279,14 @@ p2_us, p2_un, p2_non, p2_uo, p2_uc, p2_s = get_data(log_array[p2[0]:p2[1]])
 p3_us, p3_un, p3_non, p3_uo, p3_uc, p3_s = get_data(log_array[p3[0]:p3[1]])
 p4_us, p4_un, p4_non, p4_uo, p4_uc, p4_s = get_data(log_array[p4[0]:p4[1]])
 
-print 'Unique Open Perf 1 ', len(set(p1_uo[:,1]))
+'''print 'Unique Open Perf 1 ', len(set(p1_uo[:,1]))
 print 'Unique close Perf 1 ', len(set(p1_uc[:,1]))
 print 'Unique Logins Perf 2 ', len(set(p2_uc[:,1]))
 print 'Unique close Perf 2 ', len(set(p2_uc[:,1]))
 print 'Unique Logins Perf 3 ', len(set(p3_uc[:,1]))
 print 'Unique close Perf 3 ', len(set(p3_uc[:,1]))
 print 'Unique Logins Perf 4 ', len(set(p4_uc[:,1]))
-print 'Unique close Perf 4 ', len(set(p4_uc[:,1]))
+print 'Unique close Perf 4 ', len(set(p4_uc[:,1]))'''
 
 #plt.figure()
 #for i in range(len(p1_uc)):

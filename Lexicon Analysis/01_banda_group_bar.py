@@ -73,44 +73,44 @@ labels = np.array(["sample pack","random"	"patterns	" , "single characteres", "o
 
 def big_pie(axarr,p1):
     
-    rndm = np.sum(p1["random"])
-    ptrns = np.sum(p1["patterns"])
-    schar = np.sum(p1["single characteres"])
+    '''random = np.sum(p1["random"])
+    patterns = np.sum(p1["patterns"])
+    char = np.sum(p1["single characteres"])'''
     
     
-    on = np.sum(p1['onomatopaic'])    
-    ph = np.sum(p1['phatic'])
-    ml = np.sum(p1['metalinguistical'])
-    so = np.sum(p1['someone'])
-    po = np.sum(p1['political'])
-    co = np.sum(p1['comic'])
-    st = np.sum(p1['statements'])
-    ht = np.sum(p1['"html/command"'])
-    em = np.sum(p1['emoticons'])
+    ono = np.sum(p1['onomatopaic'])    
+    phatic = np.sum(p1['phatic'])
+    metal = np.sum(p1['metalinguistical'])
+    someone = np.sum(p1['someone'])
+    politic = np.sum(p1['political'])
+    comic = np.sum(p1['comic'])
+    statement = np.sum(p1['statements'])
+    code = np.sum(p1['"html/command"'])
+    emot = np.sum(p1['emoticons'])
     
-    snslss = np.sum(p1["senseless"])
-    slgns = np.sum(p1["slogans"])
-    qstns = np.sum(p1["questions"])
-    bullyll = np.sum(p1["bully"])
-
-    dmndng=np.sum(p1["demanding"])
+    '''senseless = np.sum(p1["senseless"])
+    slogans = np.sum(p1["slogans"])
+    questions = np.sum(p1["questions"])
+    bully = np.sum(p1["bully"])
+    demanding = np.sum(p1["demanding"])
     egoic = np.sum(p1["egoic"])
     complaint = np.sum(p1["complaint"])
     love = np.sum(p1["love"])
-    humor = np.sum(p1["humour"])
+    humour = np.sum(p1["humour"])
     musical = np.sum(p1["musical"])
-    spprt = np.sum(p1["support"])
+    support = np.sum(p1["support"])'''
     
     
 
     
     for i in range(len(p1)):
         if sum(p1[i])<1:
-            print i,sum(p1[i])
+            print(i,sum(p1[i]))
     
-    labels = np.array(['Phatic','Metalinguistic','Someone','Political','Onomatopaic','Comic','Statements','Abstract','Code','Emoticons'])
+    #labels = np.array(['Phatic','Metalinguistic','Someone','Political','Onomatopaic','Comic','Statements','Abstract','Code','Emoticons'])
+    labels = np.array(['Onomatopaic','Phatic','Metalinguistic','Someone','Political','Comic','Statements','Code','Emoticons'])
     tot_len = len(p1)
-    sizes = np.array([ph,ml,so,po,on,co,st,ab,ht,em])
+    sizes = np.array([ono,phatic,metal,someone,politic,comic,statement,code,emot])
     perc = sizes/tot_len
     order = np.flip(np.argsort(perc),axis=0).astype(int)
     #print perc[order]
@@ -126,7 +126,7 @@ def big_pie(axarr,p1):
     return perc,order
 
 def small_pie(axarr,p1,order,t):
-    ph = np.sum(p1['phatic'])
+    '''ph = np.sum(p1['phatic'])
     ml = np.sum(p1['metalinguistical'])
     so = np.sum(p1['someone'])
     po = np.sum(p1['political'])
@@ -135,15 +135,28 @@ def small_pie(axarr,p1,order,t):
     st = np.sum(p1['statements'])
     ab = np.sum(p1['abstract'])
     ht = np.sum(p1['htmlcommand'])
-    em = np.sum(p1['emoticons'])
+    em = np.sum(p1['emoticons'])'''
+    
+    
+    ono = np.sum(p1['onomatopaic'])    
+    phatic = np.sum(p1['phatic'])
+    metal = np.sum(p1['metalinguistical'])
+    someone = np.sum(p1['someone'])
+    politic = np.sum(p1['political'])
+    comic = np.sum(p1['comic'])
+    statement = np.sum(p1['statements'])
+    code = np.sum(p1['"html/command"'])
+    emot = np.sum(p1['emoticons'])
     
     for i in range(len(p1)):
         if sum(p1[i])<1:
-            print i,sum(p1[i])
+            print(i,sum(p1[i]))
     
-    labels = 'Phatic','Metalinguistic','Someone','Political','Onomatopaic','Comic','Statements','Abstract','Code','Emoticons'
+    #labels = 'Phatic','Metalinguistic','Someone','Political','Onomatopaic','Comic','Statements','Abstract','Code','Emoticons'
+    labels = np.array(['Onomatopaic','Phatic','Metalinguistic','Someone','Political','Comic','Statements','Code','Emoticons'])
     tot_len = len(p1)
-    sizes = np.array([ph,ml,so,po,on,co,st,ab,ht,em])
+    #sizes = np.array([ph,ml,so,po,on,co,st,ab,ht,em])
+    sizes = np.array([ono,phatic,metal,someone,politic,comic,statement,code,emot])
     perc = sizes/tot_len
     #explode = [0,0,0,0,0,0,0,0,0,0]#np.zeros(len(size))
 
@@ -157,7 +170,8 @@ def small_pie(axarr,p1,order,t):
 
 
 def theme_time(un,ind,p):
-    labels = 'Phatic','Metalinguistic','Someone','Political','Onomatopaic','Comic','Statements','Abstract','Code','Emoticons'
+    #labels = 'Phatic','Metalinguistic','Someone','Political','Onomatopaic','Comic','Statements','Abstract','Code','Emoticons'
+    labels = np.array(['Onomatopaic','Phatic','Metalinguistic','Someone','Political','Comic','Statements','Code','Emoticons'])
     f, axarr = plt.subplots(1,sharex=True)
     #axarr[0].set_yticks(np.arange(10), labels)
     axarr.set_yticks(np.arange(10))
@@ -172,7 +186,8 @@ def theme_time(un,ind,p):
     axarr.set_title('Thematic Dispersion plot for Unique Phrases in Performance '+str(p))
     
 def theme_time_o(un,ind,p,order):
-    labels = ['Phatic','Metalinguistic','Someone','Political','Onomatopaic','Comic','Statements','Abstract','Code','Emoticons']
+    #labels = ['Phatic','Metalinguistic','Someone','Political','Onomatopaic','Comic','Statements','Abstract','Code','Emoticons']
+    labels = ['Onomatopaic','Phatic','Metalinguistic','Someone','Political','Comic','Statements','Code','Emoticons']
     labels = np.array(labels)[order]
     un = un[:,order]
     f, axarr = plt.subplots(1,sharex=True,figsize=(8,4))
@@ -197,7 +212,7 @@ def convert_array(p):
             p_temp[i,j]=p[i][j]
     return p_temp
 
-path = '/Users/mb/Desktop/Janis.so/06_qmul/01_banda/Lexicon Analysis/thematic_analysis'
+path = '/Users/mb/Desktop/Janis.So/06_qmul/01_banda/banda_data/new_data'
 p_1 = np.genfromtxt(path+'/p1.csv',delimiter=',',names=True)
 p_2 = np.genfromtxt(path+'/p2.csv',delimiter=',',names=True)
 p_3 = np.genfromtxt(path+'/p3.csv',delimiter=',',names=True)
@@ -230,7 +245,7 @@ plt.tight_layout()
 
 
 
-#plt.figure()
+#plt.figure()'''
 
 ind_1 = np.array(p1_un)[:,0].astype(int)
 ind_2 = np.array(p2_un)[:,0].astype(int)
@@ -261,11 +276,7 @@ theme_time_o(p_4_temp,ind_4,4,order)
 #f, axarr = plt.subplots()
 #e_all = do_pie(axarr,np.array(all_tings))
 
-
-
-
-
-labels = 'Phatic','Metalinguistic','Someone','Political','Onomatopaic','Comic','Statements','Abstract','Code','Emoticons'
+'''labels = 'Phatic','Metalinguistic','Someone','Political','Onomatopaic','Comic','Statements','Abstract','Code','Emoticons'
 labels = np.array(labels)[order]
 N = len(labels)
 ind = np.arange(N)
@@ -355,4 +366,4 @@ ax1.set_ylim(0,1)
 #plt.legend((p1[0], p2[0], p3[0], p4[0],p5[0],p6[0],p7[0],p8[0],p9[0],p10[0]), list(np.array(labels)[order]))
 plt.legend((p10[0], p9[0], p8[0], p7[0],p6[0],p5[0],p4[0],p3[0],p2[0],p1[0]), list( np.flip( np.array(labels)[order],axis=0)),bbox_to_anchor=(1,1),loc=2)
 #plt.tight_layout()
-#plt.show()
+#plt.show()'''
