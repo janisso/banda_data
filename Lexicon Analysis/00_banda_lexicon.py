@@ -256,13 +256,13 @@ def most_common(L):
 
 
 #HERE WE COUNT THE NUMBER OF USERS
-line_count = file_len('/Users/mb/Desktop/Janis.so/06_qmul/01_banda/banda_data/banda/puma.out')
+line_count = file_len('/Users/mb/Desktop/Janis.so/06_qmul/01_banda/banda/puma.out')
 
 #ARRAY WITH INDEXES AND TEXT
 #log_array = np.zeros((line_count,2)).astype(str) 
 log_array = []
 
-f = open('/Users/mb/Desktop/Janis.so/06_qmul/01_banda/banda_data/banda/puma.out')
+f = open('/Users/mb/Desktop/Janis.so/06_qmul/01_banda/banda/puma.out')
 log_count = 0
 
 for line in f:
